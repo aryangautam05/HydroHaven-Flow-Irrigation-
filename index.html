@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HydroHaven-Flow-Irrigation Services</title>
+<style>
+  /* CSS Variables for Fern Green Theme */
+  :root {
+    --fern-green-100: #e6f0ea;
+    --fern-green-300: #a3c1a9;
+    --fern-green-500: #4a7c59;
+    --fern-green-700: #31603e;
+    --fern-green-900: #204527;
+    --gray-600: #6b7280;
+    --gray-100: #f9fafb;
+    --shadow-light: rgba(0,0,0,0.05);
+    --shadow-medium: rgba(0,0,0,0.1);
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  /* Reset and base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    background-color: #ffffff;
+    color: var(--gray-600);
+    line-height: 1.6;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a {
+    color: var(--fern-green-700);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover,
+  a:focus {
+    color: var(--fern-green-900);
+    outline: none;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    margin-top: 0;
+    color: var(--fern-green-900);
+  }
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  h2 {
+    font-size: 2.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+  }
+
+  /* Container max width and center */
+  .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    border-bottom: 1px solid var(--shadow-light);
+    z-index: 1000;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+  }
+  .logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.75rem;
+    color: var(--fern-green-700);
+    letter-spacing: 1.5px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+  .nav-links a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--fern-green-700);
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  .nav-links a:hover::after,
+  .nav-links a:focus::after {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(135deg, var(--fern-green-700) 0%, var(--fern-green-500) 100%);
+    color: #e6f0ea;
+    padding: 6rem 1rem 8rem;
+    text-align: center;
+  }
+  .hero h1 {
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    color: #e6f0ea;
+  }
+  .hero p {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2.5rem;
+    font-weight: 500;
+    color: #d6e4d8;
+  }
+  .btn-primary {
+    background-color: #e6f0ea;
+    color: var(--fern-green-700);
+    font-weight: 700;
+    padding: 1rem 2.75rem;
+    font-size: 1.125rem;
+    border-radius: 0.75rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 15px var(--shadow-medium);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: #c6dcc8;
+    outline: none;
+    transform: scale(1.05);
+  }
+
+  /* Section spacing */
+  section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  .section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  /* About */
+  .about p {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.125rem;
+    color: var(--fern-green-700);
+  }
+
+  /* Services Grid */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 2.5rem;
+  }
+  .service-card {
+    background-color: var(--fern-green-100);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px var(--shadow-light);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .service-card:hover,
+  .service-card:focus-within {
+    box-shadow: 0 8px 20px var(--shadow-medium);
+    transform: translateY(-5px);
+  }
+  .service-card img {
+    max-width: 100%;
+    border-radius: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .service-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--fern-green-900);
+  }
+  .service-card p {
+    flex-grow: 1;
+    color: var(--fern-green-700);
+  }
+
+  /* Pricing */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 2.5rem;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .pricing-card {
+    background-color: var(--fern-green-100);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px var(--shadow-light);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .pricing-card:hover,
+  .pricing-card:focus-within {
+    box-shadow: 0 8px 22px var(--shadow-medium);
+    transform: translateY(-5px);
+  }
+  .pricing-card h3 {
+    color: var(--fern-green-900);
+    margin-bottom: 1rem;
+  }
+  .pricing-price {
+    font-size: 2.75rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--fern-green-700);
+  }
+  .pricing-duration {
+    font-weight: 600;
+    color: var(--fern-green-500);
+    margin-bottom: 1rem;
+  }
+  .pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 2rem 0;
+    color: var(--fern-green-700);
+  }
+  .pricing-features li {
+    margin-bottom: 0.6rem;
+  }
+  .btn-secondary {
+    background-color: transparent;
+    border: 2.5px solid var(--fern-green-700);
+    border-radius: 0.75rem;
+    color: var(--fern-green-700);
+    padding: 0.8rem 2.5rem;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .btn-secondary:hover,
+  .btn-secondary:focus {
+    background-color: var(--fern-green-700);
+    color: #e6f0ea;
+    outline: none;
+  }
+
+  /* Customer Satisfaction and Disclaimer */
+  .bottom-sections {
+    background-color: var(--fern-green-100);
+    border-radius: 0.75rem;
+    padding: 3rem 2rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 13px var(--shadow-light);
+    color: var(--fern-green-700);
+  }
+  .bottom-sections h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--fern-green-900);
+  }
+  .bottom-sections p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+  .bottom-sections strong {
+    color: var(--fern-green-700);
+  }
+
+  /* Footer */
+  footer {
+    background-color: var(--fern-green-700);
+    color: #e6f0ea;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+  footer a {
+    color: #d6e4d8;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  footer a:hover, footer a:focus {
+    color: #ffffff;
+  }
+
+  /* Responsive typography and spacing */
+  @media (max-width: 767px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    h2 {
+      font-size: 1.75rem;
+    }
+    p {
+      font-size: 16px;
+    }
+    nav {
+      height: 60px;
+    }
+  }
+</style>
+</head>
+<body>
+<header role="banner">
+  <div class="container">
+    <nav role="navigation" aria-label="Primary navigation">
+      <div class="logo" tabindex="0">HydroHaven</div>
+      <div class="nav-links">
+        <a href="index.html"  tabindex="0"> aria-current="page">Home</a>
+        <a href="privacy.html" tabindex="0">privacy</a>
+        <a href="terms.html" tabindex="0">terms & conditions</a>
+        <a href="cookies.html" tabindex="0">Cookies</a>
+        <a href="contact.html" tabindex="0">Contact us</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" role="region" aria-label="Introductory Hero Section">
+    <div class="container">
+      <h1>HydroHaven-Flow-Irrigation: The Future of Efficient Water Management</h1>
+      <p>Reliable, sustainable, and innovative irrigation solutions designed to maximize yield and conserve water for your farm or garden.</p>
+      <button class="btn-primary" aria-label="Get Started with HydroHaven Flow Irrigation Services">Get Started</button>
+    </div>
+  </section>
+
+  <section class="about" id="about" role="region" aria-labelledby="about-title">
+    <div class="container">
+      <h2 id="about-title">About HydroHaven-Flow-Irrigation</h2>
+      <p>HydroHaven-Flow-Irrigation is a leading provider of advanced irrigation solutions that combine state-of-the-art technology with sustainable water management practices. Our services are tailored for agricultural professionals, landscapers, and small-scale gardeners looking to optimize water usage and increase productivity.</p>
+      <p>With decades of experience and a passion for environmental conservation, HydroHaven offers smart irrigation systems that adapt to your land's unique needs, weather patterns, and soil conditions. Our systems utilize intelligent flow controls, moisture sensors, and weather integration to ensure your crops receive the perfect amount of water at the right time.</p>
+      <p>Choosing HydroHaven means embracing innovation, reducing water waste, and empowering your farm or garden with cutting-edge technology that works effortlessly behind the scenes.</p>
+      <img src="p1.png" alt="Irrigation system watering plants" style="width:100%; max-width:900px; margin-top:2rem; border-radius: 0.75rem; box-shadow: 0 4px 15px var(--shadow-medium);"/>
+    </div>
+  </section>
+
+  <section class="services" id="services" role="region" aria-labelledby="services-title">
+    <div class="container">
+      <h2 id="services-title" class="section-title">Our Irrigation Services</h2>
+      <div class="services-grid">
+        <article class="service-card" tabindex="0" aria-label="Soil Moisture Sensor Installation service">
+          <img src="s1.png" alt="Close up of soil moisture sensor installed in garden" />
+          <h3>Soil Moisture Sensor Installation</h3>
+          <p>We install cutting-edge soil moisture sensors that continuously monitor the water content in your soil, allowing your irrigation system to water only when necessary, preventing over-irrigation and optimizing water efficiency.</p>
+        </article>
+
+        <article class="service-card" tabindex="0" aria-label="Smart Drip Irrigation Setup service">
+          <img src="s2.jpg" alt="Drip irrigation system delivering water to plants" />
+          <h3>Smart Drip Irrigation Setup</h3>
+          <p>Our smart drip irrigation system delivers water directly to the plant roots through tailor-made piping networks. This method reduces evaporation and runoff, resulting in significant water savings and healthier plants.</p>
+        </article>
+
+        <article class="service-card" tabindex="0" aria-label="Automated Sprinkler Systems service">
+          <img src="s3.jpg" alt="Automated sprinkler watering a green lawn" />
+          <h3>Automated Sprinkler Systems</h3>
+          <p>We design and install automated sprinkler systems that use timers and weather data to ensure your lawn and garden receive optimal watering schedules, saving you time and reducing water bills.</p>
+        </article>
+
+        <article class="service-card" tabindex="0" aria-label="Water Flow Management Consulting service">
+          <img src="s4.jpg" alt="Consultation between irrigation expert and client" />
+          <h3>Water Flow Management Consulting</h3>
+          <p>Our experts analyze your current irrigation practices, soil conditions, and water supply to provide customized recommendations and strategies for improved efficiency and sustainability.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing" role="region" aria-labelledby="pricing-title">
+    <div class="container">
+      <h2 id="pricing-title" class="section-title">Service Pricing</h2>
+      <div class="pricing-grid" role="list">
+        <article class="pricing-card" tabindex="0" role="listitem" aria-label="Basic Package">
+          <h3>Basic Package</h3>
+          <div class="pricing-price" aria-label="Price $299">$299</div>
+          <div class="pricing-duration">One-time Setup</div>
+          <ul class="pricing-features">
+            <li>Soil Moisture Sensor Installation</li>
+            <li>Initial System Evaluation</li>
+            <li>Basic Water Flow Setup</li>
+          </ul>
+          <button class="btn-secondary" aria-label="Select Basic Package">Select</button>
+        </article>
+
+        <article class="pricing-card" tabindex="0" role="listitem" aria-label="Standard Package">
+          <h3>Standard Package</h3>
+          <div class="pricing-price" aria-label="Price $799">$799</div>
+          <div class="pricing-duration">One-time Setup + 3 Months Maintenance</div>
+          <ul class="pricing-features">
+            <li>Smart Drip Irrigation Setup</li>
+            <li>Soil Sensor & Automation Integration</li>
+            <li>3 Months System Monitoring & Support</li>
+          </ul>
+          <button class="btn-secondary" aria-label="Select Standard Package">Select</button>
+        </article>
+
+        <article class="pricing-card" tabindex="0" role="listitem" aria-label="Premium Package">
+          <h3>Premium Package</h3>
+          <div class="pricing-price" aria-label="Price $1299">$1,299</div>
+          <div class="pricing-duration">Full System Setup + 1 Year Support</div>
+          <ul class="pricing-features">
+            <li>Automated Sprinkler System Installation</li>
+            <li>Custom Flow Management Consulting</li>
+            <li>1 Year Full Maintenance & Updates</li>
+            <li>Remote Monitoring & Alerts</li>
+          </ul>
+          <button class="btn-secondary" aria-label="Select Premium Package">Select</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="bottom-sections" role="region" aria-label="Customer Satisfaction and Disclaimer">
+    <h2>Customer Satisfaction</h2>
+    <p><strong>At HydroHaven, your satisfaction is our top priority.</strong> We take pride in delivering top-tier irrigation solutions backed by expert installation and ongoing support. Our team is dedicated to ensuring your system is finely tuned for optimal water savings and plant health. We offer responsive customer service and continuous maintenance plans tailored to your specific needs.</p>
+    <p>We invite all our customers to provide feedback and contact us anytime with issues or questions. Our goal is to create lasting relationships built on trust, transparency, and superior service quality.</p>
+
+    <h2>Disclaimer</h2>
+    <p>While HydroHaven strives to provide highly efficient and reliable irrigation services, environmental conditions, water quality, and site-specific factors may affect system performance. Customers are encouraged to regularly monitor their irrigation systems and maintain equipment as recommended. HydroHaven assumes no liability for system failures caused by external factors beyond our control.</p>
+    <p>All pricing and service details are subject to change without prior notice. Please consult with a HydroHaven representative for the most current information.</p>
+  </section>
+</main>
+
+<footer id="contact" role="contentinfo">
+  <div class="container">
+    <p>HydroHaven-Flow-Irrigation</p>
+    <address>75 3rd Ave, New York, NY 10003, USA</address>
+    <p>Phone: <a href="tel:+12123456789" aria-label="Call HydroHaven Flow Irrigation">+1 (212) 345-6789</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
+
