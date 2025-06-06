@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact Us - HydroHaven Flow Irrigation</title>
+<style>
+  /* CSS Variables for Fern Green Theme */
+  :root {
+    --fern-green-100: #e6f0ea;
+    --fern-green-300: #a3c1a9;
+    --fern-green-500: #4a7c59;
+    --fern-green-700: #31603e;
+    --fern-green-900: #204527;
+    --gray-600: #6b7280;
+    --gray-100: #f9fafb;
+    --shadow-light: rgba(0,0,0,0.05);
+    --shadow-medium: rgba(0,0,0,0.12);
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  /* Reset and base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    background-color: #ffffff;
+    color: var(--gray-600);
+    line-height: 1.6;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a {
+    color: var(--fern-green-700);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover,
+  a:focus {
+    color: var(--fern-green-900);
+    outline: none;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--fern-green-900);
+    margin-top: 0;
+    font-weight: 700;
+  }
+  h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+  }
+  h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1.25rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  h4 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--fern-green-700);
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+  }
+  ul, ol {
+    margin: 0 0 1.25rem 1.75rem;
+  }
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    border-bottom: 1px solid var(--shadow-light);
+    z-index: 1000;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+  }
+  .logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.75rem;
+    color: var(--fern-green-700);
+    letter-spacing: 1.5px;
+    cursor: default;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+  .nav-links a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--fern-green-700);
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  .nav-links a:hover::after,
+  .nav-links a:focus::after {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(135deg, var(--fern-green-700) 0%, var(--fern-green-500) 100%);
+    color: #e6f0ea;
+    padding: 6rem 1rem 8rem;
+    text-align: center;
+  }
+  .hero h1 {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    color: #e6f0ea;
+    font-weight: 800;
+    font-size: 3.75rem;
+    line-height: 1.1;
+  }
+  .hero p {
+    font-size: 1.375rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem;
+    font-weight: 500;
+    color: #d6e4d8;
+  }
+  .btn-primary {
+    background-color: #e6f0ea;
+    color: var(--fern-green-700);
+    font-weight: 700;
+    padding: 1.1rem 3rem;
+    font-size: 1.125rem;
+    border-radius: 0.75rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 15px var(--shadow-medium);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: #c6dcc8;
+    outline: none;
+    transform: scale(1.05);
+  }
+
+  /* Sections */
+  section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  /* Info Section Cards */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 2.5rem;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .info-card {
+    background-color: var(--fern-green-100);
+    border-radius: 0.75rem;
+    box-shadow: 0 5px 18px var(--shadow-light);
+    padding: 2rem;
+    color: var(--fern-green-700);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .info-card:hover,
+  .info-card:focus-within {
+    box-shadow: 0 8px 28px var(--shadow-medium);
+    transform: translateY(-4px);
+  }
+  .info-card h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--fern-green-900);
+  }
+  .info-card p {
+    flex-grow: 1;
+  }
+
+  /* Contact Form */
+  form.contact-form {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--fern-green-100);
+    border-radius: 0.75rem;
+    padding: 3rem 2rem;
+    box-shadow: 0 7px 22px var(--shadow-light);
+  }
+  form.contact-form h2 {
+    color: var(--fern-green-900);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  form.contact-form label {
+    display: block;
+    color: var(--fern-green-700);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    margin-top: 1.5rem;
+    font-size: 1.125rem;
+  }
+  form.contact-form input[type="text"],
+  form.contact-form input[type="email"],
+  form.contact-form input[type="tel"],
+  form.contact-form textarea,
+  form.contact-form select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 1.5px solid var(--fern-green-500);
+    font-size: 1rem;
+    font-family: var(--font-body);
+    color: var(--fern-green-700);
+    transition: border-color 0.3s ease;
+  }
+  form.contact-form input[type="text"]:focus,
+  form.contact-form input[type="email"]:focus,
+  form.contact-form input[type="tel"]:focus,
+  form.contact-form textarea:focus,
+  form.contact-form select:focus {
+    outline: none;
+    border-color: var(--fern-green-900);
+    box-shadow: 0 0 6px var(--fern-green-700);
+  }
+  form.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  form.contact-form button[type="submit"] {
+    margin-top: 2.5rem;
+    background-color: var(--fern-green-700);
+    color: #e6f0ea;
+    padding: 1rem 2.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 8px 20px var(--shadow-medium);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  form.contact-form button[type="submit"]:hover,
+  form.contact-form button[type="submit"]:focus {
+    background-color: var(--fern-green-900);
+    outline: none;
+    transform: scale(1.04);
+  }
+  .form-note {
+    font-size: 0.9rem;
+    color: var(--fern-green-500);
+    margin-top: 0.5rem;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .faq-item {
+    margin-bottom: 2rem;
+  }
+  .faq-item h3 {
+    cursor: pointer;
+    background-color: var(--fern-green-100);
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 3px 8px var(--shadow-light);
+    transition: background-color 0.3s ease;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 700;
+    color: var(--fern-green-900);
+  }
+  .faq-item h3:hover,
+  .faq-item h3:focus {
+    background-color: var(--fern-green-300);
+    outline: none;
+  }
+  .faq-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    padding: 0 1.5rem;
+  }
+  .faq-item.active .faq-content {
+    max-height: 1000px;
+    opacity: 1;
+    padding-top: 1rem;
+  }
+
+  /* Map placeholder */
+  .map-container {
+    margin: 3rem auto 0 auto;
+    max-width: 900px;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 7px 22px var(--shadow-light);
+  }
+  .map-frame {
+    width: 100%;
+    height: 380px;
+    border: none;
+  }
+
+  /* Footer */
+  footer {
+    background-color: var(--fern-green-700);
+    color: #e6f0ea;
+    padding: 2.25rem 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+  footer a {
+    color: #d6e4d8;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  footer a:hover,
+  footer a:focus {
+    color: #ffffff;
+  }
+
+  /* Responsive */
+  @media (max-width: 767px) {
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+    .hero p {
+      font-size: 1.125rem;
+    }
+    nav {
+      height: 60px;
+    }
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+    form.contact-form {
+      padding: 2rem 1rem;
+    }
+    form.contact-form h2 {
+      font-size: 1.75rem;
+    }
+  }
+</style>
+<script>
+  // Simple accordion for FAQ toggling
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.faq-item h3');
+    faqItems.forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        item.classList.toggle('active');
+      });
+      header.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          header.click();
+        }
+      });
+    });
+  });
+</script>
+</head>
+<body>
+<header role="banner">
+  <div class="container">
+    <nav role="navigation" aria-label="Primary navigation">
+      <div class="logo" tabindex="0">HydroHaven</div>
+      <div class="nav-links">
+        <a href="index.html" tabindex="0">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0"aria-current="page">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0">Cookies</a>
+        <a href="contact.html" aria-current="page" tabindex="0">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" role="region" aria-labelledby="hero-title">
+    <h1 id="hero-title">Get in Touch with HydroHaven Flow Irrigation</h1>
+    <p>We’re here to assist you with all your irrigation needs. Whether you have questions about our services, want a custom quote, or need technical support, our dedicated team is ready to help.</p>
+    <button class="btn-primary" onclick="document.getElementById('contact-form').scrollIntoView({behavior:'smooth'});" aria-label="Scroll to Contact Form">Contact Now</button>
+  </section>
+
+  <section class="container" aria-label="Contact Information and Support Options">
+    <div class="info-grid">
+      <article class="info-card" tabindex="0" aria-labelledby="phone-support-title">
+        <h3 id="phone-support-title">Phone Support</h3>
+        <p>Call us directly to speak with one of our irrigation experts. We are available Monday through Friday, from 9:00 AM to 6:00 PM EST.</p>
+        <p><strong>Phone:</strong> <a href="tel:+12123456789" aria-label="Call HydroHaven Flow Irrigation">+1 (212) 345-6789</a></p>
+      </article>
+
+      <article class="info-card" tabindex="0" aria-labelledby="email-support-title">
+        <h3 id="email-support-title">Email Support</h3>
+        <p>Send your inquiries, project requests, or feedback via email. We strive to respond within one business day.</p>
+        <p><strong>Email:</strong> <a href="mailto:support@hydrohaven.com" aria-label="Email HydroHaven Support">support@hydrohaven.com</a></p>
+      </article>
+
+      <article class="info-card" tabindex="0" aria-labelledby="office-hours-title">
+        <h3 id="office-hours-title">Office Hours</h3>
+        <p>We welcome you to visit or call during our regular office hours:</p>
+        <ul>
+          <li>Monday - Friday: 9:00 AM – 6:00 PM</li>
+          <li>Saturday: 10:00 AM – 2:00 PM</li>
+          <li>Sunday: Closed</li>
+        </ul>
+      </article>
+
+      <article class="info-card" tabindex="0" aria-labelledby="address-title">
+        <h3 id="address-title">Our Office Location</h3>
+        <p>Our primary office is located at a convenient location in New York City, serving local and regional customers.</p>
+        <address>
+          75 3rd Ave,<br />
+          New York, NY 10003,<br />
+          USA
+        </address>
+      </article>
+    </div>
+  </section>
+
+  <section aria-label="Contact Form Section" id="contact-form" class="container" >
+    <form class="contact-form" novalidate aria-labelledby="contact-form-title" aria-describedby="form-desc">
+      <h2 id="contact-form-title">Send Us a Message</h2>
+      <p id="form-desc" class="form-note">Please fill out the form below and we’ll get back to you as soon as possible.</p>
+
+      <label for="full-name">Full Name <span aria-hidden="true" style="color:#b00020">*</span></label>
+      <input type="text" id="full-name" name="full-name" required aria-required="true" placeholder="Your full name" autocomplete="name" />
+
+      <label for="email">Email Address <span aria-hidden="true" style="color:#b00020">*</span></label>
+      <input type="email" id="email" name="email" required aria-required="true" placeholder="you@example.com" autocomplete="email" />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="+1 (555) 555-5555" autocomplete="tel" />
+
+      <label for="service-interest">Service of Interest</label>
+      <select id="service-interest" name="service-interest" aria-describedby="service-desc">
+        <option value="" selected disabled>Select a service</option>
+        <option value="soil-moisture-sensor">Soil Moisture Sensor Installation</option>
+        <option value="drip-irrigation-setup">Smart Drip Irrigation Setup</option>
+        <option value="sprinkler-system">Automated Sprinkler Systems</option>
+        <option value="consulting">Water Flow Management Consulting</option>
+        <option value="general-inquiry">General Inquiry</option>
+      </select>
+      <p id="service-desc" class="form-note">Choose the service you are interested in so we can better assist you.</p>
+
+      <label for="preferred-contact">Preferred Contact Method</label>
+      <select id="preferred-contact" name="preferred-contact">
+        <option value="" selected disabled>Select a method</option>
+        <option value="phone">Phone</option>
+        <option value="email">Email</option>
+        <option value="no-preference">No Preference</option>
+      </select>
+
+      <label for="message">Message <span aria-hidden="true" style="color:#b00020">*</span></label>
+      <textarea id="message" name="message" rows="5" required aria-required="true" placeholder="Write your message here..."></textarea>
+
+      <p class="form-note">We respect your privacy. Your information will be securely handled and never shared without your consent. For details, please review our <a href="privacy.html">Privacy Policy</a>.</p>
+
+      <button type="submit" aria-label="Submit Contact Form">Submit</button>
+    </form>
+  </section>
+
+  <section aria-label="Frequently Asked Questions" class="faq-section container" style="padding-top: 2rem; padding-bottom: 5rem;">
+    <h2>Frequently Asked Questions</h2>
+
+    <article class="faq-item" tabindex="0">
+      <h3>What sets HydroHaven apart from other irrigation providers?</h3>
+      <div class="faq-content">
+        <p>HydroHaven combines cutting-edge technology, sustainable practices, and expert consulting to offer customized irrigation solutions that maximize water efficiency and crop health. Our commitment to service quality and environmental stewardship distinguishes us in the industry.</p>
+      </div>
+    </article>
+
+    <article class="faq-item" tabindex="0">
+      <h3>How long does installation typically take?</h3>
+      <div class="faq-content">
+        <p>Installation timelines vary depending on the complexity and size of the system. Basic setups can usually be completed within a few days, while larger automated systems and consulting engagements may require extended timeframes. We provide estimated delivery schedules during the consultation phase.</p>
+      </div>
+    </article>
+
+    <article class="faq-item" tabindex="0">
+      <h3>Are your systems compatible with existing irrigation infrastructure?</h3>
+      <div class="faq-content">
+        <p>Yes, our systems are designed to integrate with most existing irrigation setups. Our experts assess your current infrastructure during consultation and recommend compatible solutions to enhance efficiency.</p>
+      </div>
+    </article>
+
+    <article class="faq-item" tabindex="0">
+      <h3>Can I monitor my irrigation system remotely?</h3>
+      <div class="faq-content">
+        <p>Certain packages include remote monitoring and control capabilities that allow you to track soil moisture, water flow, and system status via a mobile app or web portal.</p>
+      </div>
+    </article>
+
+    <article class="faq-item" tabindex="0">
+      <h3>What should I do if I encounter problems with my system?</h3>
+      <div class="faq-content">
+        <p>If you experience any issues, please contact our support team via phone or email. We offer maintenance plans and troubleshooting assistance to resolve problems promptly and minimize downtime.</p>
+      </div>
+    </article>
+  </section>
+
+  <section aria-label="Our Location Map" class="container">
+    <h2>Visit Us</h2>
+    <p>Our office is located in the heart of New York City. Feel free to stop by during office hours for consultations or assistance.</p>
+    <div class="map-container" role="region" aria-label="Office Location Map">
+      <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.0632050600757!2d-73.99217658459772!3d40.73063187932806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a5a65a6e29%3A0x7c99fabdf25f659a!2s75%203rd%20Ave%2C%20New%20York%2C%20NY%2010003%2C%20USA!5e0!3m2!1sen!2sus!4v1687215369238!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="HydroHaven Office Location"></iframe>
+    </div>
+  </section>
+
+  <section aria-label="Additional Contact Resources" class="container" style="padding-bottom: 6rem;">
+    <h2>More Ways to Reach Us</h2>
+    <p>If you prefer alternative contact routes or need specialized assistance, consider these options:</p>
+    <ul>
+      <li><strong>Social Media:</strong> Follow us on platforms such as Facebook, Twitter, and Instagram for updates and to send messages.</li>
+      <li><strong>Live Chat:</strong> Available during office hours on our website for instant responses to common questions.</li>
+      <li><strong>Newsletter Sign-up:</strong> Stay informed about service updates, water-saving tips, and promotions by subscribing to our newsletter.</li>
+    </ul>
+    <p>We aim to provide comprehensive support and information to empower your irrigation decisions.</p>
+  </section>
+</main>
+
+<footer id="contact" role="contentinfo">
+  <div class="container">
+    <p>HydroHaven-Flow-Irrigation</p>
+    <address>75 3rd Ave, New York, NY 10003, USA</address>
+    <p>Phone: <a href="tel:+12123456789" aria-label="Call HydroHaven Flow Irrigation">+1 (212) 345-6789</a></p>
+  </div>
+</footer>
+</body>
+</html>
