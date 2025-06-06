@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Terms of Service - HydroHaven Flow Irrigation</title>
+<style>
+  /* CSS Variables for Fern Green Theme */
+  :root {
+    --fern-green-700: #31603e;
+    --fern-green-900: #204527;
+    --gray-600: #6b7280;
+    --gray-100: #f9fafb;
+    --shadow-light: rgba(0,0,0,0.05);
+    --shadow-medium: rgba(0,0,0,0.1);
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  /* Reset and base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    background-color: #fff;
+    color: var(--gray-600);
+    line-height: 1.6;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a {
+    color: var(--fern-green-700);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover,
+  a:focus {
+    color: var(--fern-green-900);
+    outline: none;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--fern-green-900);
+    margin-top: 0;
+    font-weight: 700;
+  }
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+  }
+  ul, ol {
+    margin: 0 0 1.25rem 1.75rem;
+  }
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Container max width and padding */
+  .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Header & Navigation */
+  header {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--shadow-light);
+    z-index: 1000;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 65px;
+    padding: 0 1rem;
+  }
+  .logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--fern-green-700);
+    letter-spacing: 1.5px;
+    cursor: default;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+  .nav-links a {
+    font-weight: 600;
+    font-size: 1rem;
+    position: relative;
+    padding: 0.5rem 0;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--fern-green-700);
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  .nav-links a:hover::after,
+  .nav-links a:focus::after {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 5rem 1rem 4rem;
+    text-align: center;
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero h1 {
+    font-weight: 800;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+    color: var(--fern-green-900);
+  }
+  .hero p {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    font-weight: 500;
+    color: var(--fern-green-700);
+  }
+
+  /* Sections */
+  section {
+    padding-bottom: 4rem;
+  }
+  .section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--fern-green-900);
+  }
+  .subsection-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--fern-green-700);
+  }
+
+  /* Content Card */
+  .content-card {
+    background-color: var(--gray-100);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    box-shadow: 0 7px 20px var(--shadow-light);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Footer */
+  footer {
+    background-color: var(--fern-green-700);
+    color: #e6f0ea;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+  footer a {
+    color: #d6e4d8;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  footer a:hover,
+  footer a:focus {
+    color: #ffffff;
+  }
+
+  /* Responsive */
+  @media (max-width: 767px) {
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+    }
+    nav {
+      height: 55px;
+    }
+    .section-title {
+      font-size: 1.75rem;
+    }
+    .subsection-title {
+      font-size: 1.25rem;
+    }
+    .content-card {
+      padding: 1.25rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header role="banner">
+  <div class="container">
+    <nav role="navigation" aria-label="Primary navigation">
+      <div class="logo" tabindex="0">HydroHaven</div>
+      <div class="nav-links">
+        <a href="index.html" tabindex="0">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0"aria-current="page">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0">Cookies</a>
+        <a href="contact.html" tabindex="0">Contact us</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" role="region" aria-labelledby="hero-title">
+    <h1 id="hero-title">Terms of Service</h1>
+    <p>Welcome to HydroHaven Flow Irrigation. These Terms of Service govern your use of our website and services. Please read them carefully to understand your rights and responsibilities.</p>
+  </section>
+
+  <section class="container">
+    <article id="terms" tabindex="0" class="content-card" role="main" aria-label="Terms of Service Content">
+      <h2 class="section-title">1. Acceptance of Terms</h2>
+      <p>By accessing or using HydroHaven Flow Irrigation’s website and services, you agree to be bound by these Terms of Service (“Terms”). If you do not agree with any part of these Terms, you must not use our site or services.</p>
+
+      <h2 class="section-title">2. Modification of Terms</h2>
+      <p>HydroHaven reserves the right to change or update these Terms at any time without prior notice. Your continued use of our website or services following any changes constitutes acceptance of the updated Terms. We encourage you to review this agreement periodically.</p>
+
+      <h2 class="section-title">3. Description of Services</h2>
+      <p>HydroHaven Flow Irrigation offers water irrigation solutions, including but not limited to soil moisture sensor installation, smart drip irrigation setup, automated sprinkler systems, and consulting services. We strive to provide detailed and accurate information; however, the services are subject to availability and local regulations.</p>
+
+      <h2 class="section-title">4. User Responsibilities</h2>
+      <p>Users agree to:</p>
+      <ul>
+        <li>Use the website and services in compliance with all applicable laws and regulations.</li>
+        <li>Provide accurate, current, and complete information during any registration or service request process.</li>
+        <li>Maintain the confidentiality of any account login credentials and notify us immediately of any unauthorized use.</li>
+        <li>Not use the website or services for any unlawful or harmful activities.</li>
+      </ul>
+
+      <h2 class="section-title">5. Intellectual Property Rights</h2>
+      <p>All content on the HydroHaven website, including text, graphics, logos, images, and software, is the property of HydroHaven or its licensors and protected by copyright, trademark, and other laws. You may not reproduce, distribute, modify, or create derivative works from any part of this site without prior written permission.</p>
+
+      <h2 class="section-title">6. Payment and Pricing</h2>
+      <p>Prices for services are listed on our website and are subject to change without notice. Payment terms will be outlined during purchase or service agreement. We reserve the right to suspend or terminate services if payments are not received in accordance with agreed terms.</p>
+
+      <h2 class="section-title">7. Cancellation and Refund Policy</h2>
+      <p>Customers may cancel services before scheduled installation or delivery. Refund eligibility and process will be described in your service agreement or invoice. HydroHaven reserves the right to withhold refunds for services already rendered or customized work.</p>
+
+      <h2 class="section-title">8. Limitations of Liability</h2>
+      <p>To the maximum extent permitted by law, HydroHaven shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising out of or relating to the use of our website or services, even if advised of the possibility of such damages.</p>
+
+      <h2 class="section-title">9. Disclaimer of Warranties</h2>
+      <p>Our services and website are provided “as is” and “as available” without warranties of any kind, either express or implied. HydroHaven disclaims all warranties including but not limited to merchantability, fitness for a particular purpose, and non-infringement.</p>
+
+      <h2 class="section-title">10. Indemnification</h2>
+      <p>You agree to indemnify, defend, and hold harmless HydroHaven, its affiliates, and employees from any claims, damages, liabilities, losses, costs, or expenses arising directly or indirectly from your use of the website or violation of these Terms.</p>
+
+      <h2 class="section-title">11. Governing Law</h2>
+      <p>These Terms shall be governed by and construed in accordance with the laws of the State of New York, without regard to its conflict of law rules. You agree to submit to the jurisdiction of state and federal courts located in New York for any disputes arising out of or relating to these Terms or services.</p>
+
+      <h2 class="section-title">12. Termination</h2>
+      <p>We reserve the right to terminate or suspend your access to the website or services at any time, without prior notice or liability, for conduct that we believe violates these Terms or is harmful to other users, third parties, or HydroHaven.</p>
+
+      <h2 class="section-title">13. Privacy Policy</h2>
+      <p>Your use of our website and services is also governed by our <a href="privacy.html">Privacy Policy</a>, which explains how we collect, use, and protect your personal data.</p>
+
+      <h2 class="section-title">14. Third-Party Links and Services</h2>
+      <p>Our website may contain links to third-party websites or services not owned or controlled by HydroHaven. We are not responsible for the content, privacy practices, or terms of such third parties. Your interactions with them are solely between you and the third party.</p>
+
+      <h2 class="section-title">15. Disclaimer Regarding External Content</h2>
+      <p>HydroHaven may provide content or links for informational purposes only. We do not endorse, guarantee, or warrant the accuracy or completeness of any external information or resources.</p>
+
+      <h2 class="section-title">16. User-Generated Content</h2>
+      <p>If you submit reviews, feedback, or other content, you grant HydroHaven a royalty-free, worldwide, perpetual license to use, modify, and display such content. You represent that you have rights to submit such content and it does not violate any laws or rights of others.</p>
+
+      <h2 class="section-title">17. Electronic Communications</h2>
+      <p>By using our site, you consent to receive electronic communications such as emails or messages related to your account or services. You agree that such communications satisfy any legal requirements for written notice.</p>
+
+      <h2 class="section-title">18. Accessibility Commitment</h2>
+      <p>HydroHaven strives to ensure our website is accessible to all users, consistent with applicable laws and standards. If you experience any difficulty accessing content or require assistance, please contact us.</p>
+
+      <h2 class="section-title">19. Force Majeure</h2>
+      <p>HydroHaven will not be liable for failure or delay in performance due to causes beyond our reasonable control, including but not limited to acts of God, natural disasters, war, terrorism, labor disputes, or government actions.</p>
+
+      <h2 class="section-title">20. Entire Agreement</h2>
+      <p>These Terms, together with our Privacy Policy and any other legal notices published by HydroHaven, constitute the entire agreement between you and HydroHaven concerning the use of our website and services.</p>
+
+      <h2 class="section-title">21. Severability</h2>
+      <p>If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary so that these Terms remain in full force and effect.</p>
+
+ <h2 class="section-title">22. Waiver</h2>
+      <p>The failure of HydroHaven to enforce any right or provision of these Terms shall not be deemed a waiver of such right or provision. Any waiver of any provision of these Terms will be effective only if in writing and signed by an authorized representative of HydroHaven.</p>
+
+      <h2 class="section-title">23. Contact Information</h2>
+      <p>If you have any questions or concerns regarding these Terms of Service, please contact us:</p>
+      <ul>
+        <li><strong>Address:</strong> 75 3rd Ave, New York, NY 10003, USA</li>
+        <li><strong>Phone:</strong> <a href="tel:+12123456789" aria-label="Call HydroHaven Flow Irrigation">+1 (212) 345-6789</a></li>
+        <li><strong>Email:</strong> <a href="mailto:info@hydrohaven.com" aria-label="Email HydroHaven">info@hydrohaven.com</a></li>
+      </ul>
+    </article>
+  </section>
+</main>
+
+<footer id="contact" role="contentinfo">
+  <div class="container">
+    <p>HydroHaven-Flow-Irrigation</p>
+    <address>75 3rd Ave, New York, NY 10003, USA</address>
+    <p>Phone: <a href="tel:+12123456789" aria-label="Call HydroHaven Flow Irrigation">+1 (212) 345-6789</a></p>
+  </div>
+</footer>
+</body>
+</html>
